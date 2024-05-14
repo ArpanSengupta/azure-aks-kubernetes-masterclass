@@ -1,0 +1,14 @@
+# Self deployment of pod through yaml file
+apiVersion: v1 # String
+kind: Pod # String
+metadata: # Dictionary
+  name: my-app-pod
+  labels:
+    app: myapp
+
+spec:
+  containers: # List for multi container pods
+    - name: myapp
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
