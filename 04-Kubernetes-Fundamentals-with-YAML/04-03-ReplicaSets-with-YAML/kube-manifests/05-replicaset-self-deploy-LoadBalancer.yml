@@ -1,0 +1,14 @@
+# Exposing the self deployed replica set as a Load Balancer service
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp2-rs-LoadBalancer
+
+spec:
+  type: LoadBalancer
+  selector: # It should be the label of the replica set pods
+    app: myapp2
+  ports:
+    - name: http
+      port: 80 # Service Port 
+      targetPort: 80 # Container port
